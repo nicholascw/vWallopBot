@@ -16,7 +16,7 @@ time_t birthtime(time(nullptr));
 int main() {
     Bot bot("611832030:AAGXfzQMKVDFlpdUkWGkYXqrHy9YcTeWKwo");
 
-    bot.getEvents().onCommand("listadm", [&bot](Message::Ptr message) {
+    bot.getEvents().onCommand("lsadm", [&bot](Message::Ptr message) {
         if (message->date < birthtime)return;
         if (message->chat->type == Chat::Type::Group
             || message->chat->type == Chat::Type::Supergroup) {

@@ -114,7 +114,7 @@ void start(Bot &bot, const Message::Ptr &message) {
 }
 
 int main(int argc, char *argv[]) {
-    string bot_token = ;
+    string bot_token = BOT_TOKEN_;
     if (argc > 1) {
         bot_token = argv[1];
         regex token_verify("\\d{9}:[0-9A-Za-z_-]{35}");
@@ -130,6 +130,8 @@ int main(int argc, char *argv[]) {
             }
         } while (i++ < 3);
     }
+
+
     Bot bot(bot_token);
     bot.getEvents().onCommand("lsadm", [&bot](const Message::Ptr &message) {
         if (message->date < birthtime)return;

@@ -114,6 +114,11 @@ void start(Bot &bot, const Message::Ptr &message) {
 }
 
 int main(int argc, char *argv[]) {
+    cout << "\033[1mvWallopBot\033[0m" << endl
+         << "Author: Nicholas Wang <me@nicho1as.wang>" << endl
+         << "Copyright (C) 2018  Licensed with GPLv3, for details, see: https://www.gnu.org/licenses/gpl-3.0.en.html"
+         << endl << endl;
+
     string bot_token = BOT_TOKEN_;
     if (argc > 1) {
         bot_token = argv[1];
@@ -130,7 +135,6 @@ int main(int argc, char *argv[]) {
             }
         } while (i++ < 3);
     }
-
 
     Bot bot(bot_token);
     bot.getEvents().onCommand("lsadm", [&bot](const Message::Ptr &message) {
@@ -163,7 +167,6 @@ int main(int argc, char *argv[]) {
 
     try {
         cout << "Bot: " + string(bot.getApi().getMe()->username.c_str()) << endl
-             << "Author: Nicholas Wang <me@nicho1as.wang>" << endl
              << "Build: " << __DATE__ << " " << __TIME__ << endl
              << "----------" << endl
              << "\033[1m[" << put_time(localtime(&birthtime), "%h %d %H:%M:%S") << "]\033[0m\t" << "Birth." << endl;
